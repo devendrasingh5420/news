@@ -1,6 +1,5 @@
 const fetch = require("node-fetch")
 const http = require("http");
-const { link } = require("fs");
 
 const PORT = process.env.PORT || 5000;
 
@@ -38,7 +37,7 @@ const data = async () => {
         while (dataOfInterest[idx2]!=">")
             idx2+=1;
         idx2--;
-        var address = dataOfInterest.slice(idx1,idx2);
+        var address = dataOfInterest.slice(idx1+1,idx2);
 
         base = base.concat(address);
         // console.log(base);
@@ -80,7 +79,8 @@ const data = async () => {
     if (req.url === "/getTimeStories" && req.method === "GET") {
         res.writeHead(200, { "Content-Type": "application/json" });
         
-        // const obj = JSON.parse(text);
+         const obj = JSON.parse(text);
+         console.log(obj);
         res.write(text);
         res.end();
     }
