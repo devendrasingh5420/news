@@ -17,10 +17,10 @@ const URL = "https://time.com/";
 //start the program
 const data = async () => {
     const rawData = await getRawData(URL);
-    let index = rawData.indexOf("most-popular-feed__item-container");
+    let index = rawData.indexOf("latest-stories__heading");
 
     dataOfInterest = rawData.slice(index);
-    var className = "most-popular-feed__item-headline";
+    var className = "latest-stories__item-headline";
     const classNameLength = className.length;
     var linkHref = "<a href=";
     const linkHrefLength = linkHref.length;
@@ -97,7 +97,3 @@ const data = async () => {
    
  };
  data();
- 
-
-
-
